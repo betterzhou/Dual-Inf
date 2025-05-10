@@ -8,8 +8,7 @@ import warnings
 warnings.filterwarnings("ignore")
 import ast
 
-
-openai.api_key = ''
+openai.api_key = "..."  # API key
 
 
 def get_completion_expert_1(prompt, model="gpt-4-turbo-preview"):
@@ -42,7 +41,7 @@ def get_completion_whether_reason_wrong(prompt, model="gpt-4-turbo-preview"):
     return response.choices[0].message["content"]
 
 
-
+# Orthopedic disease
 patient_info_1 = f""" 
 History
 HPI: 51-year M construction worker complains of low back pain that started after he lifted heavy boxes 1 week ago. The pain is 8/10, sharp in nature, radiates to the left thigh and sometimes to the left foot. Pain worsens with movement, cough, and sitting for a long time. It is relieved by lying down and partially by ibuprofen. He denies urinary/stool incontinence or weakness/loss of sensation in the lower extremities. No fever, night sweats, or weight loss. He does report difficulty urinating and incomplete emptying of the bladder for 6 months as well as a 1-year history of intermittent low back pain. The pain is exacerbated by sitting for long periods but is relieved by lying down after ambulation.
@@ -80,7 +79,7 @@ prediction_rationale_1 = {
     ]
 }
 
-
+# Cardiovascular disease
 patient_info_2 = f""" 
 A 27-year-old man presents to the emergency department after a motor vehicle collision. 
 The patient was the front seat unrestrained driver in a head on collision. The patient's echocardiogram (ECG) is notable only for sinus tachycardia. 
@@ -90,18 +89,21 @@ Initial workup demonstrates that the patient's pulmonary capillary wedge pressur
 The patient is currently complaining of chest pain. Physical exam is notable for an uncomfortable young man with bruising over his chest wall. 
 """
 
-prediction_rationale_2 = {'myocardial infarction': ["the patient's pulmonary capillary wedge pressure and troponins are elevated", 'the patient is currently complaining of chest pain'],
-'myocardial contusion': ["the patient's pulmonary capillary wedge pressure and troponins are elevated",
-    'the patient is currently complaining of chest pain',
-    'Physical exam is notable for an uncomfortable young man with bruising over his chest wall'],
-'pulmonary embolism': ["the patient's pulmonary capillary wedge pressure and troponins are elevated",
-    'the patient is currently complaining of chest pain'], 'pneumothorax': ['the patient is currently complaining of chest pain',
-    'bruising over his chest wall'],
-'aortic dissection': ["the patient's pulmonary capillary wedge pressure and troponins are elevated",
-    'the patient is currently complaining of chest pain']
-}
+prediction_rationale_2 = {
+    'myocardial infarction': ["the patient's pulmonary capillary wedge pressure and troponins are elevated",
+                              'the patient is currently complaining of chest pain'],
+    'myocardial contusion': ["the patient's pulmonary capillary wedge pressure and troponins are elevated",
+                             'the patient is currently complaining of chest pain',
+                             'Physical exam is notable for an uncomfortable young man with bruising over his chest wall'],
+    'pulmonary embolism': ["the patient's pulmonary capillary wedge pressure and troponins are elevated",
+                           'the patient is currently complaining of chest pain'],
+    'pneumothorax': ['the patient is currently complaining of chest pain',
+                     'bruising over his chest wall'],
+    'aortic dissection': ["the patient's pulmonary capillary wedge pressure and troponins are elevated",
+                          'the patient is currently complaining of chest pain']
+    }
 
-
+# Digestive system disease
 patient_info_3 = f""" 
 A one-day-old male is evaluated in the hospital nursery for bilious vomiting. 
 The patient has urinated multiple times since birth but has not yet passed meconium. 
@@ -115,15 +117,21 @@ His abdomen is firm and distended with hypoactive bowel sounds.
 """
 
 prediction_rationale_3 = {
-'Hirschsprung disease': ['the patient has urinated multiple times since birth but has not yet passed meconium', 'His abdomen is firm and distended with hypoactive bowel sounds'],
-'meconium ileus': ['bilious vomiting', 'has not yet passed meconium', 'abdomen is firm and distended with hypoactive bowel sounds'],
-'intestinal atresia': ['bilious vomiting', 'has not yet passed meconium', 'abdomen is firm and distended with hypoactive bowel sounds'],
-'malrotation with midgut volvulus': ['bilious vomiting', 'has not yet passed meconium', 'abdomen is firm and distended with hypoactive bowel sounds'],
-'meconium plug syndrome': ['the patient has urinated multiple times since birth but has not yet passed meconium', 'His abdomen is firm and distended with hypoactive bowel sounds'],
-'Duodenal atresia': ['bilious vomiting', 'has not yet passed meconium', 'abdomen is firm and distended with hypoactive bowel sounds']
+    'Hirschsprung disease': ['the patient has urinated multiple times since birth but has not yet passed meconium',
+                             'His abdomen is firm and distended with hypoactive bowel sounds'],
+    'meconium ileus': ['bilious vomiting', 'has not yet passed meconium',
+                       'abdomen is firm and distended with hypoactive bowel sounds'],
+    'intestinal atresia': ['bilious vomiting', 'has not yet passed meconium',
+                           'abdomen is firm and distended with hypoactive bowel sounds'],
+    'malrotation with midgut volvulus': ['bilious vomiting', 'has not yet passed meconium',
+                                         'abdomen is firm and distended with hypoactive bowel sounds'],
+    'meconium plug syndrome': ['the patient has urinated multiple times since birth but has not yet passed meconium',
+                               'His abdomen is firm and distended with hypoactive bowel sounds'],
+    'Duodenal atresia': ['bilious vomiting', 'has not yet passed meconium',
+                         'abdomen is firm and distended with hypoactive bowel sounds']
 }
 
-
+# Reproductive system disease
 patient_info_4 = f""" 
 A 30-year-old woman comes to the physician because she has been unable to conceive for 3 years. 
 Analysis of her husband's semen has shown normal sperm counts during this time. The patient also reports episodic pelvic and back pain accompanied by painful diarrhea for 5 years. 
@@ -134,12 +142,14 @@ Pelvic and bimanual examinations are normal; rectal examination is unremarkable.
 """
 
 prediction_rationale_4 = {
-'endometriosis': ['she has been unable to conceive for 3 years', 'episodic pelvic and back pain accompanied by painful diarrhea for 5 years',
-    'about one such episode on average per month for 4-6 days'],
-'pelvic inflammatory disease (PID)': ['unable to conceive for 3 years', 'episodic pelvic and back pain accompanied by painful diarrhea for 5 years']
+    'endometriosis': ['she has been unable to conceive for 3 years',
+                      'episodic pelvic and back pain accompanied by painful diarrhea for 5 years',
+                      'about one such episode on average per month for 4-6 days'],
+    'pelvic inflammatory disease (PID)': ['unable to conceive for 3 years',
+                                          'episodic pelvic and back pain accompanied by painful diarrhea for 5 years']
 }
 
-
+# Nervous system disease
 patient_info_5 = f""" 
 A 6-month-old boy presents to his pediatrician for a wellness examination. The mother reports that her child has difficulty rolling from his back to his front and sitting unsupported. 
 The patient is able to smile and furrow his brow normally, but she has noticed that he has a weak cry and suck. 
@@ -148,12 +158,18 @@ The mother said that the patient appeared 'normal' until the past few weeks. On 
 He has symmetric flaccid weakness of both his upper and lower extremities. He also has a bell-shaped chest. 
 """
 
-prediction_rationale_5 = {'myopathies': ['symmetric flaccid weakness of both his upper and lower extremities', 'Deep tendon reflexes are diminished'],
-'congenital myasthenia gravis': ['difficulty rolling from his back to his front and sitting unsupported', 'weak cry and suck', 'symmetric flaccid weakness of both his upper and lower extremities', 'diminished deep tendon reflexes'],
-'anterior horn cell diseases such as spinal muscular atrophy (SMA)': ['symmetric flaccid weakness of both his upper and lower extremities', 'Deep tendon reflexes are diminished']
-}
+prediction_rationale_5 = {'myopathies': ['symmetric flaccid weakness of both his upper and lower extremities',
+                                         'Deep tendon reflexes are diminished'],
+                          'congenital myasthenia gravis': [
+                              'difficulty rolling from his back to his front and sitting unsupported',
+                              'weak cry and suck', 'symmetric flaccid weakness of both his upper and lower extremities',
+                              'diminished deep tendon reflexes'],
+                          'anterior horn cell diseases such as spinal muscular atrophy (SMA)': [
+                              'symmetric flaccid weakness of both his upper and lower extremities',
+                              'Deep tendon reflexes are diminished']
+                          }
 
-
+# Endocrine disorder
 patient_info_6 = f""" 
 An 18-month-old girl is brought to the pediatrician by her mother for vaginal bleeding. 
 The mother states that she noticed the bleeding today, which appeared as brown discharge with clots in the patient's diaper. 
@@ -165,11 +181,14 @@ A plain radiograph of the left lower leg shows patchy areas of lytic bone and sc
 """
 
 prediction_rationale_6 = {'precocious puberty': ['bilateral enlargement of the breasts', 'vaginal bleeding'],
-'foreign body': ['the vaginal orifice is normal and clear with an intact hymen', 'the mother denies any known trauma'],
-'sexual abuse': ['vaginal bleeding', "brown discharge with clots in the patient's diaper"],
-'McCune-Albright Syndrome': ["multiple 2-3 cm hyperpigmented patches on the patient's trunk", 'bilateral enlargement of the breasts but no pubic hair', 'patchy areas of lytic bone and sclerosis within the femoral metaphysis']}
+                          'foreign body': ['the vaginal orifice is normal and clear with an intact hymen',
+                                           'the mother denies any known trauma'],
+                          'sexual abuse': ['vaginal bleeding', "brown discharge with clots in the patient's diaper"],
+                          'McCune-Albright Syndrome': ["multiple 2-3 cm hyperpigmented patches on the patient's trunk",
+                                                       'bilateral enlargement of the breasts but no pubic hair',
+                                                       'patchy areas of lytic bone and sclerosis within the femoral metaphysis']}
 
-
+# Respiratory disease
 patient_info_7 = f""" 
 A 50-year-old man presents to his physician with chronic cough, aching joints in his hips and lower back, and malaise over the past 2 months. 
 He describes himself as being  generally healthy  before the cough began. Past medical history includes hypertension. The patient takes clopamide and a multivitamin daily. 
@@ -182,12 +201,18 @@ The laboratory tests show the following results: Hemoglobin 12.9 mg/dL Leukocyte
 """
 
 prediction_rationale_7 = {
-'pneumonia': ['chronic cough', 'right-sided consolidation of the lower right lung', 'irregular opacity measuring 3.8 cm x 3.0 cm in the sub-plural region of the right middle lobe', 'small right-sided pleural effusion'],
-'lung cancer': ['a chest CT shows an irregular opacity measuring 3.8 cm x 3.0 cm in the sub-plural region of the right middle lobe', 'a small right-sided pleural effusion', 'mild right-sided hilar adenopathy'],
-'fungal infection': ['necrotic granulomatous inflammation with multinucleated giant cells and spherules with endospores in the surrounding tissues', 'Periodic acid-Schiff and silver methenamine Positive']
+    'pneumonia': ['chronic cough', 'right-sided consolidation of the lower right lung',
+                  'irregular opacity measuring 3.8 cm x 3.0 cm in the sub-plural region of the right middle lobe',
+                  'small right-sided pleural effusion'],
+    'lung cancer': [
+        'a chest CT shows an irregular opacity measuring 3.8 cm x 3.0 cm in the sub-plural region of the right middle lobe',
+        'a small right-sided pleural effusion', 'mild right-sided hilar adenopathy'],
+    'fungal infection': [
+        'necrotic granulomatous inflammation with multinucleated giant cells and spherules with endospores in the surrounding tissues',
+        'Periodic acid-Schiff and silver methenamine Positive']
 }
 
-
+# skin
 patient_info_8 = f""" 
 A 4-year-old boy is brought to the physician because of a generalized rash for 3 days. During this period, he has had severe itching and was not able to sleep well. 
 He has also had fever, headache, and some muscle pain. Five days ago, he had a runny nose which subsided with over-the-counter medications. He returned from a camping trip 1 week ago. 
@@ -197,12 +222,15 @@ The remainder of the examination shows no abnormalities.
 """
 
 prediction_rationale_8 = {
-'measles (rubeola)': ['generalized rash for 3 days', 'severe itching', 'fever', 'headache', 'muscle pain', 'runny nose'],
-'varicella (chickenpox)': ['generalized rash for 3 days', 'severe itching', 'fever, headache, and some muscle pain', 'macules, papules, and crusted lesions over his face, trunk, and extremities', 'fluid-filled vesicles over his abdomen and back'],
-'allergic reaction': ['generalized rash for 3 days', 'severe itching and was not able to sleep well']
+    'measles (rubeola)': ['generalized rash for 3 days', 'severe itching', 'fever', 'headache', 'muscle pain',
+                          'runny nose'],
+    'varicella (chickenpox)': ['generalized rash for 3 days', 'severe itching', 'fever, headache, and some muscle pain',
+                               'macules, papules, and crusted lesions over his face, trunk, and extremities',
+                               'fluid-filled vesicles over his abdomen and back'],
+    'allergic reaction': ['generalized rash for 3 days', 'severe itching and was not able to sleep well']
 }
 
-
+# Nervous
 patient_info_9 = f""" 
 A 65-year-old man presents with a 6-month history of repeated falls, postural dizziness, progressive fatigue, generalized weakness and a 13.6 kg (30 lb) weight loss. He is a vegetarian. 
 The patient's family says that he had been high functioning but has had significant behavioral changes over the past year. The patient denies any smoking history, alcohol consumption, or illicit drug use. 
@@ -212,14 +240,22 @@ Laboratory results are significant for the following: Hb 6.1 g/dL MCV 109 fL Pla
 """
 
 prediction_rationale_9 = {
-'vitamin B12 deficiency': ['a 6-month history of repeated falls, postural dizziness, progressive fatigue, generalized weakness and a 13.6 kg (30 lb) weight loss', 'significant behavioral changes over the past year', 'an unstable, wide-based ataxic gait', 'Hb 6.1 g/dL MCV 109 fL', 'hypersegmented neutrophils'],
-'folate deficiency': ['progressive fatigue, generalized weakness and a 13.6 kg (30 lb) weight loss', 'Hb 6.1 g/dL MCV 109 fL', 'A peripheral blood smear demonstrates hypersegmented neutrophils'],
-'copper deficiency': ['repeated falls', 'postural dizziness', 'progressive fatigue', 'generalized weakness', 'weight loss', 'significant behavioral changes', 'irritable, paranoid, and delusional', 'unstable, wide-based ataxic gait'],
-'neurodegenerative disorders': ['repeated falls', 'postural dizziness', 'progressive fatigue', 'generalized weakness', 'significant behavioral changes', 'irritable, paranoid, and delusional', 'unstable, wide-based ataxic gait'],
-'psychiatric conditions': ['He is irritable, paranoid, and delusional but denies any hallucinations']
+    'vitamin B12 deficiency': [
+        'a 6-month history of repeated falls, postural dizziness, progressive fatigue, generalized weakness and a 13.6 kg (30 lb) weight loss',
+        'significant behavioral changes over the past year', 'an unstable, wide-based ataxic gait',
+        'Hb 6.1 g/dL MCV 109 fL', 'hypersegmented neutrophils'],
+    'folate deficiency': ['progressive fatigue, generalized weakness and a 13.6 kg (30 lb) weight loss',
+                          'Hb 6.1 g/dL MCV 109 fL', 'A peripheral blood smear demonstrates hypersegmented neutrophils'],
+    'copper deficiency': ['repeated falls', 'postural dizziness', 'progressive fatigue', 'generalized weakness',
+                          'weight loss', 'significant behavioral changes', 'irritable, paranoid, and delusional',
+                          'unstable, wide-based ataxic gait'],
+    'neurodegenerative disorders': ['repeated falls', 'postural dizziness', 'progressive fatigue',
+                                    'generalized weakness', 'significant behavioral changes',
+                                    'irritable, paranoid, and delusional', 'unstable, wide-based ataxic gait'],
+    'psychiatric conditions': ['He is irritable, paranoid, and delusional but denies any hallucinations']
 }
 
-
+# Circulatory
 patient_info_10 = f""" 
 A 68-year-old man presents with a 6-month history of worsening fatigue and weight loss. He is especially concerned about a recent episode in which he noticed a blurring of his vision and headache; 
 he also notes that his  memory is not as good as it used to be,  which his wife confirms. Physical exam is notable only for pallor and general weakness. 
@@ -227,18 +263,32 @@ Laboratory studies reveal anemia as well as an elevated erythrocyte sedimentatio
 """
 
 prediction_rationale_10 = {
-'multiple myeloma': ['worsening fatigue and weight loss', 'anemia as well as an elevated erythrocyte sedimentation rate', 'sharp, narrow spike of monoclonal IgM; serum IgM concentration is 6.3 g/dL'],
-"Waldenstrom's macroglobulinemia": ['worsening fatigue and weight loss', 'blurring of his vision and headache', 'memory is not as good as it used to be', 'anemia', 'elevated erythrocyte sedimentation rate', 'sharp, narrow spike of monoclonal IgM', 'serum IgM concentration is 6.3 g/dL'],
-'non-Hodgkin lymphoma': ['a 6-month history of worsening fatigue and weight loss', 'a recent episode in which he noticed a blurring of his vision and headache', 'an elevated erythrocyte sedimentation rate', 'Serum protein electrophoresis (SPEP) reveals a sharp, narrow spike of monoclonal IgM; serum IgM concentration is 6.3 g/dL']
+    'multiple myeloma': ['worsening fatigue and weight loss',
+                         'anemia as well as an elevated erythrocyte sedimentation rate',
+                         'sharp, narrow spike of monoclonal IgM; serum IgM concentration is 6.3 g/dL'],
+    "Waldenstrom's macroglobulinemia": ['worsening fatigue and weight loss', 'blurring of his vision and headache',
+                                        'memory is not as good as it used to be', 'anemia',
+                                        'elevated erythrocyte sedimentation rate',
+                                        'sharp, narrow spike of monoclonal IgM', 'serum IgM concentration is 6.3 g/dL'],
+    'non-Hodgkin lymphoma': ['a 6-month history of worsening fatigue and weight loss',
+                             'a recent episode in which he noticed a blurring of his vision and headache',
+                             'an elevated erythrocyte sedimentation rate',
+                             'Serum protein electrophoresis (SPEP) reveals a sharp, narrow spike of monoclonal IgM; serum IgM concentration is 6.3 g/dL']
 }
 
 
-def expert_1_prediction_v2_support_feedback(disease_num_j, patient_info_j, whether_low_conf_diagnosis, low_confidence_diagnosis_list):
+def expert_1_prediction_v2_support_feedback(disease_num_j, patient_info_j, whether_low_conf_diagnosis,
+                                            low_confidence_diagnosis_list):
+    """
+    v2 version:
+    It receives low-confidence diagnosis as feedback.
+    In other words, adding low-confidence diagnosis into prompts.
+    """
     Question = f"""Based on the patient’s symptom description, please USE STEP-BY-STEP DEDUCTION TO INFER the most likely diagnoses. 
         In other words, list the differential diagnosis. Please state the names of the most likely diseases. 
         Additionally, for each possible disease, explain which pieces of patient information support this diagnosis. 
         Please note that you should use STEP-BY-STEP DEDUCTION TO INFER the diagnoses and interpretations.
-        
+
         Please note that your response format should be a Python dictionary structure. 
         This means the keys of the dictionary are the names of the predicted diseases, 
         and the value corresponding to each key is the list of reasons supporting this prediction.
@@ -254,7 +304,7 @@ def expert_1_prediction_v2_support_feedback(disease_num_j, patient_info_j, wheth
     You are an experienced doctor. 
     Based on the provided patient information```{patient_info_j}```and the question ```{Question}```,
     please infer the most likely diagnoses.
-    
+
     Below, I provide ten complete examples for you to understand the task and reference the response format. 
         Patient information```{patient_info_1}``` and the question```{Question}``` as well as the doctor’s diagnoses and interpretation```{prediction_rationale_1}```
         Patient information```{patient_info_2}``` and the question```{Question}``` as well as the doctor’s diagnoses and interpretation```{prediction_rationale_2}```
@@ -298,6 +348,8 @@ def expert_1_prediction_v2_support_feedback(disease_num_j, patient_info_j, wheth
     Please note that abbreviations should not appear in all the texts.
     """
 
+    # -------------------------- agent 1 prediction --------------------------
+    # if previous prediction has low confident diagnosis
     if whether_low_conf_diagnosis:
         expert_1_pred = get_completion_expert_1(Prompt_expert1_add_feedback)
     else:
@@ -308,21 +360,22 @@ def expert_1_prediction_v2_support_feedback(disease_num_j, patient_info_j, wheth
 
 def expert_2_infer_syptom_list_from_book_v2(diagnosis_info_j):
     eg_expert2_disease_1 = "appendicitis"
-    eg_expert2_disease_1_symptom_list = ["Pain that starts near the navel and moves to the lower right side of the abdomen",
-                         "Pain that worsens when coughing, walking, or making other jarring movements",
-                         "Nausea and vomiting",
-                         "Loss of appetite",
-                         "Low-grade fever that may rise as the illness worsens",
-                         "Constipation or diarrhea",
-                         "A flushed face",
-                         "Elevated White Blood Cell Count (Leukocytosis)"]
+    eg_expert2_disease_1_symptom_list = [
+        "Pain that starts near the navel and moves to the lower right side of the abdomen",
+        "Pain that worsens when coughing, walking, or making other jarring movements",
+        "Nausea and vomiting",
+        "Loss of appetite",
+        "Low-grade fever that may rise as the illness worsens",
+        "Constipation or diarrhea",
+        "A flushed face",
+        "Elevated White Blood Cell Count (Leukocytosis)"]
     eg_expert2_disease_3 = "Alzheimer's disease"
     eg_expert2_disease_3_symptom_list = ["Memory loss",
-                                "Challenges in planning or solving problems",
-                                "Difficulty completing familiar tasks",
-                                "Confusion with time or place",
-                                "problems with words in speaking or writing",
-                                "Decreased or poor judgment"]
+                                         "Challenges in planning or solving problems",
+                                         "Difficulty completing familiar tasks",
+                                         "Confusion with time or place",
+                                         "problems with words in speaking or writing",
+                                         "Decreased or poor judgment"]
 
     Prompt_expert2 = f"""
     You are an experienced doctor. 
@@ -331,9 +384,9 @@ def expert_2_infer_syptom_list_from_book_v2(diagnosis_info_j):
     Below, I provide some examples for you to understand the task and reference the response format. 
     For the disease```{eg_expert2_disease_1}```, all its common clinical manifestations and examination results are as follows```{eg_expert2_disease_1_symptom_list}```
     For the disease```{eg_expert2_disease_3}```, all its common clinical manifestations and examination results are as follows```{eg_expert2_disease_3_symptom_list}```
-    
+
     Please note that the listed elements, e.g., symptoms or medical laboratory results, can support the diagnosis of the disease.  
-    
+
     Please note that your output should have a specific format. 
     Specifically, the output is a Python list object; each symptom in the list is an element. Each symptom should not contain double quotes internally but should be enclosed in double quotes at the beginning and end. 
     Again, please note that the output should only be in a Python list type; the elements of the list are related symptoms, lab test results, etc.
@@ -362,7 +415,7 @@ def evaluate_whether_reason_wrong(disease_k, disease_k_gnd_symptom_list, disease
     Prompt_whether_reason_wrong = f"""
     You are an experienced doctor. 
     I need you to determine whether a symptom```{disease_k_reason_j}``` belongs to the clinical manifestations or test results of the disease ```{disease_k}```.
-    Specifically, please use your medical knowledge and the provided symptom list ```{disease_k_gnd_symptom_list}``` for the disease ```{disease_k}``` to \
+    Specifically, please use your medical knowledge and the provided symptom list ```{disease_k_gnd_symptom_list}``` for the disease ```{disease_k}``` to \ 
     determine if ```{disease_k_reason_j}``` also belongs to the clinical manifestations or test results of this disease. \
     Please DO IT STEP-BY-STEP.
 
@@ -375,28 +428,41 @@ def evaluate_whether_reason_wrong(disease_k, disease_k_gnd_symptom_list, disease
 
     """
     whether_valid_symptom = get_completion_whether_reason_wrong(Prompt_whether_reason_wrong)
-    if  whether_valid_symptom == 'Yes' or whether_valid_symptom == 'yes':
+    if whether_valid_symptom == 'Yes' or whether_valid_symptom == 'yes':
         return "Yes"
     if whether_valid_symptom == 'No' or whether_valid_symptom == 'no':
         return "No"
 
 
 def check_wrong_rationales(pred_dict, gnd_dict):
+    """
+    {
+    disease_A: ['R1', 'R2'],
+    disease_B: ['R1', 'R2'],
+    ...
+    }
+    The two dict should have the same disease list (i.e., key)
+    It is ok, if the predicted dict has fewer keys.
+    """
+
     GPT_work_counts = 0
     pred_dict_refine = copy.deepcopy(pred_dict)
     for disease_k in list(pred_dict.keys()):
         pred_reason_list = pred_dict[disease_k]
         pred_reason_list_refined = copy.deepcopy(pred_reason_list)
-        gnd_reason_list = gnd_dict[disease_k]   
+        gnd_reason_list = gnd_dict[disease_k]
 
         for disease_k_reason_j in pred_reason_list:
             whether_valid_symptom = evaluate_whether_reason_wrong(disease_k, gnd_reason_list, disease_k_reason_j)
             GPT_work_counts += 1
             if GPT_work_counts % 10 == 0:
-                time.sleep(60)  
+                time.sleep(60)
 
             if whether_valid_symptom == "No":
-                pred_reason_list_refined.remove(disease_k_reason_j)  
+                pred_reason_list_refined.remove(disease_k_reason_j)
+                print('moved incorrect symptom')
+            else:
+                print(disease_k_reason_j + "\t belongs to \t" + disease_k)
         pred_dict_refine[disease_k] = pred_reason_list_refined
     return pred_dict_refine
 
@@ -420,12 +486,12 @@ def evaluate_whether_reason_missing(disease_k, patient_EHR, disease_k_reason_j):
     Prompt_whether_reason_missing = f"""
     You are an experienced doctor. 
     I need you to determine whether the patient’s condition description (electronic health record) ```{patient_EHR}``` mentions the clinical manifestations or test results of the disease ```{disease_k}```.
-    
+
     Specifically, please use your medical knowledge to determine if a symptom ```{disease_k_reason_j}``` of the disease```{disease_k}``` appears in this patient’s condition description ```{patient_EHR}```.\
     In other words, does the patient’s condition description```{patient_EHR}``` mention this symptom```{disease_k_reason_j}```? Please USE STEP-BY-STEP DEDUCTION TO DO IT.
-    
+
     Please note, this is not asking for an exact word-for-word match, but rather whether the patient’s condition description```{patient_EHR}```includes clinical manifestations similar to ```{disease_k_reason_j}```.
-    
+
     Below, I provide several complete examples for you to understand the task and reference the response format. 
     Based on medical knowledge, a common symptom of a disease```{eg_prompt_disease_symptom_A}```appears in this patient’s condition description```{eg_prompt_EHR_patient}```, so the output is 'Yes'. 
     Based on medical knowledge, a common symptom of a disease```{eg_prompt_disease_symptom_B}```appears in this patient’s condition description```{eg_prompt_EHR_patient}```, so the output is 'Yes'. 
@@ -443,23 +509,38 @@ def evaluate_whether_reason_missing(disease_k, patient_EHR, disease_k_reason_j):
         return "No"
 
 
-def check_missing_rationales_from_EHR(book_dict, patient_note, current_dict):
-    GPT_work_counts = 0
-    current_dict_refine = copy.deepcopy(current_dict)
-    for disease_k in list(book_dict.keys()):
-        pred_reason_list = book_dict[disease_k]
-        pred_reason_list_refined = copy.deepcopy(pred_reason_list)
+def check_missing_rationales_from_EHR(book_dict, patient_note, expert_1_pred_refined_dict):
+    """
+    book_dict
+    {
+    disease_A: ['R1', 'R2'],
+    disease_B: ['R1', 'R2'],
+    ...
+    }
+    patient_note: free text
+    """
 
-        for disease_k_reason_j in pred_reason_list:
+    GPT_work_counts = 0
+
+    expert_1_refined_dict_supplement = copy.deepcopy(expert_1_pred_refined_dict)
+    for disease_k in list(book_dict.keys()):
+        expert2_pred_reason_list = book_dict[disease_k]  # expert_2's knowledge from book
+        expert1_pred_reason_list_refined = expert_1_pred_refined_dict[disease_k]
+
+        for disease_k_reason_j in expert2_pred_reason_list:
             whether_valid_symptom = evaluate_whether_reason_missing(disease_k, patient_note, disease_k_reason_j)
             GPT_work_counts += 1
             if GPT_work_counts % 10 == 0:
-                time.sleep(60)  
+                time.sleep(60)
 
             if whether_valid_symptom == "Yes":
-                pred_reason_list_refined.append(disease_k_reason_j)
-        current_dict_refine[disease_k] = pred_reason_list_refined
-    return current_dict_refine
+                expert1_pred_reason_list_refined.append(disease_k_reason_j)
+                print('add symptom')
+            else:
+                print(disease_k_reason_j + "\t irrelevant to EHR\t")
+
+        expert_1_refined_dict_supplement[disease_k] = expert1_pred_reason_list_refined
+    return expert_1_refined_dict_supplement
 
 
 def adjust_string(s: str) -> str:
@@ -480,50 +561,56 @@ def find_low_confidence_diagnosis(pred_dict, threshold=2):
         if len(value) <= threshold:
             low_confidence_diagnosis_list.append(key)
             whether_exist_low_confidence_diagnosis = True  # has low conf diag
-
     return low_confidence_diagnosis_list, whether_exist_low_confidence_diagnosis
 
 
 def dual_inference_LLM_pred(patient_info_j, disease_num_j, GPT_count_num, threshold=2):
-    final_pred_dict = None                # update later
+    final_pred_dict = None  # update later
     low_confidence_diagnosis_list = None  # update later
-    whether_low_conf_diagnosis = False    # update later
+    whether_low_conf_diagnosis = False  # update later
     iter_num = 0
 
+    # max five iteration for checking and revise pred
     for k in range(5):
         iter_num += 1
-        expert_1_pred_dict = expert_1_prediction_v2_support_feedback(disease_num_j, patient_info_j,
-                                                        whether_low_conf_diagnosis, low_confidence_diagnosis_list)
+        print('%%%%%%%%%%%%%%%%%%%%%%  starting loop  \t   ', k, 'th iteration  %%%%%%%%%%%%%%%%%%%%%%')
 
-        pred_disease_name_list = list(expert_1_pred_dict.keys())    
+        expert_1_pred_dict = expert_1_prediction_v2_support_feedback(disease_num_j, patient_info_j,
+                                                                     whether_low_conf_diagnosis,
+                                                                     low_confidence_diagnosis_list)
+        pred_disease_name_list = list(expert_1_pred_dict.keys())
+
         patient_j_final_disease_list = []
         patient_j_final_symptoms_list = []
         for j in range(len(pred_disease_name_list)):
             disease_name_j = pred_disease_name_list[j]
-            expert_2_book_symptoms = expert_2_infer_syptom_list_from_book_v2(disease_name_j)  
-            expert_2_book_symptoms = adjust_string(expert_2_book_symptoms)  
+            expert_2_book_symptoms = expert_2_infer_syptom_list_from_book_v2(disease_name_j)
+            expert_2_book_symptoms = adjust_string(expert_2_book_symptoms)
             try:
                 book_symptoms_list = ast.literal_eval(expert_2_book_symptoms)
                 patient_j_final_disease_list.append(disease_name_j)
                 patient_j_final_symptoms_list.append(book_symptoms_list)
             except (ValueError, SyntaxError):
-                print("cannot convert book_symptoms to list !!!!")
+                print("cannot convert book_symptoms to list !!!!", '\t expert_2_book_symptoms:', expert_2_book_symptoms)
 
         expert_2_pred_dict = dict(zip(patient_j_final_disease_list, patient_j_final_symptoms_list))
-        print('**************  expert 2 prediction over  ************** \n')
+        # --------------------------------------------------------------------------------
 
+        # -------------  stop working ------------------
         GPT_count_num += 6
         if GPT_count_num % 10 == 0:
-            time.sleep(60)  
-
+            time.sleep(60)
+        # -------------------------------
         expert_1_pred_refined_dict = check_wrong_rationales(expert_1_pred_dict, expert_2_pred_dict)
-
         patient_note = patient_info_j
         dict_form_book = expert_2_pred_dict
-        double_refined_dict = check_missing_rationales_from_EHR(dict_form_book, patient_note, expert_1_pred_refined_dict)
+        double_refined_dict = check_missing_rationales_from_EHR(dict_form_book, patient_note,
+                                                                expert_1_pred_refined_dict)
         final_pred_dict = double_refined_dict
+        print('double_refined_dict:\t', double_refined_dict)
 
-        low_confidence_diagnosis_list, whether_low_conf_diagnosis = find_low_confidence_diagnosis(final_pred_dict, threshold)
+        low_confidence_diagnosis_list, whether_low_conf_diagnosis = find_low_confidence_diagnosis(final_pred_dict,
+                                                                                                  threshold)
         if not whether_low_conf_diagnosis:
             break
 
@@ -539,23 +626,25 @@ def main(file_path, columns_of_interest):
 
     GPT_count_num = 0
     for index, row in df.iterrows():
-        patient_info_j, disease_num_j, rationale_num_j, gnd_rationale_j, specialty_j = [row[col_index] for col_index in columns_of_interest]
-        gnd_rationale_j = eval(gnd_rationale_j)  
+        # select certain columns
+        patient_info_j, disease_num_j, rationale_num_j, gnd_rationale_j, specialty_j = [row[col_index] for col_index in
+                                                                                        columns_of_interest]
+        gnd_rationale_j = eval(gnd_rationale_j)
         print(f"\n Patient ID {index}")
-
-        final_pred_dict, low_confidence_diagnosis_list, GPT_count_num, iteration_num = dual_inference_LLM_pred(patient_info_j, disease_num_j, GPT_count_num)
-
+        final_pred_dict, low_confidence_diagnosis_list, GPT_count_num, _ = dual_inference_LLM_pred(
+            patient_info_j, disease_num_j, GPT_count_num)
+        # ------------------- save prediction to csv file ------------
         gnd_disease_list_j = [dis_k for dis_k in gnd_rationale_j.keys()]
         disease_list_j = [dis_j for dis_j in final_pred_dict.keys()]
         one_patient_data = {'patient_info': patient_info_j,
                             'disease_num': int(disease_num_j),
                             'rationale_num': int(rationale_num_j),
-                            'interpretation': gnd_rationale_j,
+                            'rationale': gnd_rationale_j,
                             'specialty': specialty_j,
                             'gnd_disease': gnd_disease_list_j,
                             'pred_disease': disease_list_j,
-                            'pred_rationale': final_pred_dict,
-                            'iteration_num': int(iteration_num)}
+                            'pred_rationale': final_pred_dict
+                            }
         try:
             with open(output_file_path, 'r') as f:
                 header = False
@@ -564,14 +653,15 @@ def main(file_path, columns_of_interest):
         df_new = pd.DataFrame([one_patient_data])
         df_new.to_csv(output_file_path, mode='a', header=header, index=False, encoding='utf-8-sig')
         print(f"\n ##################### Patient ID {index} finished  #####################")
+
+        # -------------  stop working ------------------
         GPT_count_num += 2
         if GPT_count_num % 10 == 0:
-            time.sleep(60)  
+            time.sleep(60)
+        # -------------------------------
 
 
 file_path = "./annotated_dataset.xlsx"
-output_file_path = "./output.csv"
+output_file_path = "./Dual-Inf_output.csv"
 columns_of_interest = [1, 2, 3, 4, 5]
 main(file_path, columns_of_interest)
-
-
