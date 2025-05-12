@@ -3,6 +3,7 @@
 ## 1. Introduction
 This repository contains code for the paper "[Explainable Differential Diagnosis With Dual-Inference Large Language Models](https://www.nature.com/articles/s44401-025-00015-6)" (NPJ Health Systems 2025).
 
+![Figure: Dual-Inference Model](Figure_Dual-Inf.jpg)
 
 ## 2. Usage
 ### Requirements:
