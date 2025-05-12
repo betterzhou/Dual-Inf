@@ -15,7 +15,7 @@ This repository contains code for the paper "[Explainable Differential Diagnosis
 
 ### Datasets:
 The annotated dataset Open-XDDx is available in this repo. 
-Each sample is annotated with differential diagnoses, a set of possible diseases.
+Each sample is annotated with a set of differential diagnoses (i.e., possible diseases) along with their corresponding diagnostic explanations.
 
 ![Figure: OpenXDDx Dataset](Figure_OpenXDDx_dataset.jpg)
 
