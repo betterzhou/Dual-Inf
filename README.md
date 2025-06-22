@@ -3,13 +3,13 @@
 ## 1. Introduction
 This repository contains code for the paper "[Explainable Differential Diagnosis With Dual-Inference Large Language Models](https://www.nature.com/articles/s44401-025-00015-6)" (NPJ Health Systems 2025).
 
-![Figure: Dual-Inference Model](Figure_Dual-Inf.jpg)
+
 
 ---
 
 #### **Figure 1: Dual-Inference Model**
 
-<img src="Fig_1_scope.jpg" alt="Figure: Overview of the Dual-Inf framework" width="700px" />
+<img src="Figure_Dual-Inf.jpg" alt="Figure: Overview of the Dual-Inf framework" width="700px" />
 
 *An overview of the Dual-Inference Large Language Model framework (Dual-Inf) for interpretable
 DDx. Dual-Inf consists of four components: (1) a forward-inference module, which is an LLM to generate
