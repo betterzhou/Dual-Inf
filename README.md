@@ -4,6 +4,11 @@
 This repository contains code for the paper "[Explainable Differential Diagnosis With Dual-Inference Large Language Models](https://www.nature.com/articles/s44401-025-00015-6)" (NPJ Health Systems 2025).
 
 
+# 🔥🔥🔥 Expert-Annotated Dataset for Differential Diagnosis 🔥🔥🔥
+
+We have constructed an **expert-annotated dataset** specifically designed for differential diagnosis!
+
+
 
 ---
 
