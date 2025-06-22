@@ -33,7 +33,7 @@ takes the low-confidence diagnoses as feedback for the forward-inference module 
 + pandas
 
 
-### Datasets:
+### Our Annotated Datasets: Open-XDDx
 The annotated dataset Open-XDDx is available in this repo. 
 Each sample is annotated with a set of differential diagnoses (i.e., possible diseases) along with their corresponding diagnostic explanations.
 
@@ -43,7 +43,7 @@ Each sample is annotated with a set of differential diagnoses (i.e., possible di
 
 <img src="Figure_OpenXDDx_dataset.jpg" alt="Figure: Overview of the investigated scope" width="700px" />
 
-*An example of the annotated data. It contains a set of possible diagnoses and the corresponding evidence that supports the diagnosis.*
+*An example of the annotated data. It contains a set of differential diagnoses (i.e., possible diseases) and the corresponding evidence that supports the diagnosis.*
 
 ---
 
