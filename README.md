@@ -5,6 +5,26 @@ This repository contains code for the paper "[Explainable Differential Diagnosis
 
 ![Figure: Dual-Inference Model](Figure_Dual-Inf.jpg)
 
+---
+
+#### **Figure 1: Dual-Inference Model**
+
+<img src="Fig_1_scope.jpg" alt="Figure: Overview of the Dual-Inf framework" width="700px" />
+
+*An overview of the Dual-Inference Large Language Model framework (Dual-Inf) for interpretable
+DDx. Dual-Inf consists of four components: (1) a forward-inference module, which is an LLM to generate
+initial diagnoses from patient symptoms, (2) a backward-inference module, which is an LLM for conducting
+inverse inference via recalling all the representative symptoms associated with the initial diagnoses, i.e., from
+diagnoses to symptoms, (3) an examination module, which is another LLM to receive patients’ notes and the
+output from the two modules for prediction assessment (e.g., completeness examination) and decision making
+(e.g., filtering out low-confidence diagnoses), and (4) an iterative self-reflection mechanism, which iteratively
+takes the low-confidence diagnoses as feedback for the forward-inference module to “think twice”.*
+
+---
+
+---
+
+
 ## 2. Usage
 ### Requirements:
 + openai==0.28.0
