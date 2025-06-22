@@ -39,7 +39,7 @@ Each sample is annotated with a set of differential diagnoses (i.e., possible di
 
 ---
 
-#### **Figure 1: OpenXDDx Dataset**
+#### **Figure 1: Open-XDDx Dataset**
 
 <img src="Figure_OpenXDDx_dataset.jpg" alt="Figure: Overview of the investigated scope" width="700px" />
 
@@ -55,10 +55,32 @@ Please modify the 'file_path' in the code to adapt to the path of your data fold
 
 
 
+
+## 3. Summary of Differential Diagnosis Datasets
+
+
+### Open-XDDx  
+*Journal:* NPJ Health Systems 2025
+
+---
+
+### DDXPlus: A New Dataset for Automatic Medical Diagnosis  
+*Conference:* NIPS 2022  
+
+---
+
+### NEJM Case Records  
+*Source:* New England Journal of Medicine (NEJM)
+
+
+
+
 For research cooperation, please contact zhou2219 AT umn.edu
 
 
-## 3. Citation
+
+
+## 4. Citation
 Please kindly cite the paper if you use the code or any resources in this repo:
 
 Zhou, S., Lin, M., Ding, S. et al. Explainable differential diagnosis with dual-inference large language models. npj Health Syst. 2, 12 (2025). https://doi.org/10.1038/s44401-025-00015-6
